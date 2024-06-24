@@ -1,0 +1,24 @@
+1) Policy Function - A policy function is defined to select actions based on an epsilon-greedy strategy. This function uses a parameter epsilon to decide whether to explore randomly or exploit the best-known action. If a random number is less than epsilon, it selects a random action. Otherwise, it chooses the action with the highest estimated value
+
+2) Reward Function - The main reward function is defined to return rewards based on the action taken. Each action corresponds to a different probabilistic distribution:
+
+3) Distribution Functions - Separate functions are defined for each type of probabilistic reward:
+
+- Gaussian: Generates a random number from a normal distribution with a specified mean and standard deviation.
+- Coin toss: Returns a value from a predefined set of outcomes.
+- Poisson: Generates a random number from a Poisson distribution.
+- Exponential: Generates a random number from an exponential distribution.
+- Crazy Button: Generates a random number from a uniform distribution within a specified range.
+
+4) Simulation Loop - The main part of the notebook runs a simulation for 1000 episodes. Within each episode, it performs the following steps:
+
+- Initializes Q-values and occurrence counts for each action.
+- For each step in the episode, it selects an action using the policy function, updates the occurrence count, retrieves the reward, and updates the Q-value using an incremental mean formula.
+- Accumulates the total reward for the episode and appends it to the reward history list.
+- After completing all episodes, the final Q-values are printed.
+
+5) Step 4 is repeated for epsilon = 0, 0.1, and 0.01 and plots are made for each of these
+
+6) In step 5, instead of using a fixed epsilon, the epsilon is decremented after each episode such that it reaches 0 at the end of the training which implies that the policy will converge to a greedy policy from an epsilon-greedy one
+
+About the resources, I have coded this myself mostly but asked chatgpt for the implementation of distribution functions
